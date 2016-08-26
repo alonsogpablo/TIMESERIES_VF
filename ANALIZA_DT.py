@@ -14,7 +14,9 @@ data.fillna(0,inplace=True)
 
 for column in data:
     if data[column].mean()==0: del data[column]
+    elif data[column].mean()>50000: del data[column]
+    elif data[column].mean()<100: del data[column]
 
 
-for i,row in data.mean().iteritems():
-    print i,data[i].mean()
+print data.mean().sort_values(ascending=False)
+
